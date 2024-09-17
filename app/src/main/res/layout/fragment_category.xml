@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Home.CategoryFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Category"
+        app:menu="@menu/search"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:titleTextColor="#FFFFFF"
+        android:background="@color/Yellow"/>
+
+    <View
+        android:id="@+id/View"
+        android:layout_width="match_parent"
+        android:layout_height="1.35dp"
+        android:backgroundTint="#DAD4D4"
+        app:layout_constraintTop_toBottomOf="@+id/tbCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProducts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/View"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_5sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tvNoProduct"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/View"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:text="No Products Available"
+        android:textSize="@dimen/_18sdp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/productShimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/View"
+        android:layout_margin="@dimen/_5sdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/shimer_itemview"/>
+            <include layout="@layout/shimer_itemview"/>
+            <include layout="@layout/shimer_itemview"/>
+            <include layout="@layout/shimer_itemview"/>
+        </LinearLayout>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

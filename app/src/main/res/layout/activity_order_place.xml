@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.OrderPlaceActivity">
+
+    <Toolbar
+        android:id="@+id/CheckoutToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:title="Checkout"
+        android:titleTextColor="@color/black"
+        android:background="@color/WhiteYellow"/>
+
+    <View
+        android:id="@+id/view"
+    android:layout_width="match_parent"
+    android:layout_height="1.35dp"
+    android:backgroundTint="#DAD4D4"
+    app:layout_constraintTop_toBottomOf="@+id/CheckoutToolbar"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CvShowCartProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="13.00dp"
+        app:cardUseCompatPadding="true"
+        android:elevation="0dp"
+        android:padding="6.50dp"
+        android:layout_margin="7.00dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        >
+        <ScrollView
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RvShowProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="13.00dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                />
+        </ScrollView>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CvShowProductsBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="13.00dp"
+        app:cardUseCompatPadding="true"
+        android:elevation="0dp"
+        android:padding="6.50dp"
+        android:layout_margin="7.00dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CvShowCartProducts"
+        >
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13.00dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Details"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="19.50dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1"
+                    android:layout_margin="10.00dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="16.00sp"
+                        android:layout_height="16.00sp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:src="@drawable/baseline_article_24"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
+                        android:text="Sub Total"
+                        android:textSize="15.60sp"
+                        android:layout_marginStart="13.00dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/subTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:gravity="end"
+                        android:layout_marginEnd="13.00dp"
+                        android:text="0"
+                        android:textSize="15.60sp"
+                        android:layout_marginStart="13.00dp"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1"
+                    android:layout_margin="10.00dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="16.00sp"
+                        android:layout_height="16.00sp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:src="@drawable/baseline_directions_bike_24"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
+                        android:text="Delivery Charge"
+                        android:textSize="15.60sp"
+                        android:layout_marginStart="13.00dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/deliveryChargePrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:gravity="end"
+                        android:layout_marginEnd="13.00dp"
+                        android:text="Free"
+                        android:textSize="15.60sp"
+                        android:layout_marginStart="13.00dp"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1"
+                    android:layout_margin="10.00dp"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
+                        android:text="Grand Total"
+                        android:textStyle="bold"
+                        android:textSize="18.60sp"
+                        android:layout_marginStart="13.00dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/grandtotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:gravity="end"
+                        android:layout_marginEnd="13.00dp"
+                        android:text="0"
+                        android:textSize="15.60sp"
+                        android:layout_marginStart="13.00dp"
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/cart"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="13.00dp"
+        android:background="@drawable/bottom_cart_bg"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_gravity="center|bottom"
+        >
+        <LinearLayout
+            android:id="@+id/bottomViewCart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="0.5"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/phonepay"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PhonePe UPI"
+                android:textSize="18.00dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_5sdp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/navCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="0.5"
+            android:background="@drawable/next_bg"
+            android:gravity="center_horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place Order"
+                android:textSize="18.00dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_margin="5.00dp"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_navigate_next_24"
+                android:background="@android:color/transparent"
+                android:layout_gravity="center"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
