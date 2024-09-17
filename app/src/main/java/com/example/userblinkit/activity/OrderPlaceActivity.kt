@@ -80,8 +80,9 @@ class OrderPlaceActivity : AppCompatActivity() {
                         }
                     }
                 }
-
             }
+            Utils.ToastMes(this,"address saved")
+
 
     }
 

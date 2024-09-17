@@ -90,6 +90,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
+
     //shared preference
     fun getUserAddStatus() : MutableLiveData<Boolean> {
         val status = MutableLiveData<Boolean>()
@@ -98,7 +99,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun saveUserAddStatus() {
-        sharedPreference.edit().putBoolean("Address",true)
+        sharedPreference.edit().putBoolean("Address",true).apply()
     }
 
 
